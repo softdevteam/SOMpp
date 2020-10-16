@@ -101,6 +101,9 @@ endif ()
 
 add_definitions(-DGC_TYPE=${GC_TYPE})
 
+find_library(LIB_KRUNTIME
+	NAMES kruntime)
+
 add_executable(SOM++ "")
 
 target_sources(SOM++ PRIVATE
@@ -121,7 +124,7 @@ target_compile_options(SOM++ PRIVATE
 
 target_include_directories(SOM++ PRIVATE ${SRC_DIR})
 
-target_link_libraries(SOM++)
+target_link_libraries(SOM++ ${LIB_KRUNTIME})
 
 add_executable(unittests "")
 
@@ -150,6 +153,7 @@ find_library(LIB_CPPUNIT
 	HINTS /opt/local/lib)
 
 target_link_libraries(unittests ${LIB_CPPUNIT})
+target_link_libraries(unittests ${LIB_KRUNTIME})
 
 enable_testing()
 

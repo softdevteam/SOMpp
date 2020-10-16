@@ -35,6 +35,7 @@
 #include <primitives/String.h>
 #include <primitives/Symbol.h>
 #include <primitives/System.h>
+#include <primitives/Krun.h>
 
 #include "PrimitiveLoader.h"
 #include "PrimitiveContainer.h"
@@ -57,6 +58,7 @@ PrimitiveLoader::PrimitiveLoader() {
     AddPrimitiveObject("String",    new _String());
     AddPrimitiveObject("Symbol",    new _Symbol());
     AddPrimitiveObject("System",    new _System());
+    AddPrimitiveObject("Krun",      new _Krun());
 }
 
 PrimitiveLoader::~PrimitiveLoader() {
